@@ -16,11 +16,12 @@ std::pair<unsigned int, unsigned int> foo() {
     unsigned int summ = 0;
     unsigned int summall = 0;
 
+    unsigned int state = 123456789;
     for (unsigned int i = 0; i < 10'000'000; i++) {
+        state = state * 1664525 + 1013904223;
         summall += i;
-		unsigned int val = ((i) * 469873 + 776);
         //std::cout << val << std::endl;
-        if (((val >> 21) % 255) < 128)
+        if (((state >> 24) % 255) < 128)
             summ += i;
     }
     return { summall, summ };

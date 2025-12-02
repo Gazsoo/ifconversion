@@ -18,9 +18,9 @@ std::pair<unsigned int, unsigned int> foo() {
 
     for (unsigned int i = 0; i < 10'000'000; i++) {
         summall += i;
-		unsigned int val = ((i << 3) * 469873 + 776) % 255;
-        if (val < 128)
-            //std::cout << val << std::endl;
+		unsigned int val = ((i) * 469873 + 776);
+        //std::cout << val << std::endl;
+        if (((val >> 21) % 255) < 128)
             summ += i;
     }
     return { summall, summ };

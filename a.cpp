@@ -36,6 +36,14 @@ std::vector<unsigned int> make_unpredictable_vector(std::size_t N = 5'000'000) {
         v.push_back(dist(rng));
     return v;
 }
+std::vector<unsigned int> make_predictable_vector(std::size_t N = 10'000'000) {
+
+    std::vector<unsigned> v;
+    v.reserve(N);
+    for (size_t i = 0; i < N; ++i)
+        v.push_back(i);
+    return v;
+}
 int main() {
 
     std::vector<unsigned int> randomNumbers = {
@@ -59,7 +67,7 @@ int main() {
 
     //std::cbegin(nums), std::ranges::cend(nums)
 
-    auto b = foo(make_unpredictable_vector());
+    auto b = foo(make_predictable_vector());
 
     std::cout << b.first << " " << b.second << std::endl;
 

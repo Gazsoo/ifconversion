@@ -24,10 +24,10 @@ std::pair<unsigned int, unsigned int> foo(std::vector<unsigned int> list) {
     return { summall, summ };
 }
 
-std::vector<unsigned int> make_unpredictable_vector(std::size_t N = 10'000'000) {
+std::vector<unsigned int> make_unpredictable_vector(std::size_t N = 5'000'000) {
 
-    std::random_device rd;           // true hardware randomness
-    std::mt19937 rng(rd());          // PRNG seeded differently each run
+    std::random_device rd;        
+    std::mt19937 rng(rd());
     std::uniform_int_distribution<unsigned> dist(0, 255);
     std::vector<unsigned> v;
 
